@@ -1,22 +1,56 @@
-# 1 简介
-该代码基于TensorFlow 1.6实现了Image Style Transfer模型，实现了图片的风格的学习与转换。代码教程链接在[我的知乎](https://zhuanlan.zhihu.com/p/38315161)。
+# 🎨 ArtMorphAI
+### *Transform your photos into artistic masterpieces using deep learning and neural style transfer*
 
-- 整篇文章的代码参考来源于Stanford CS20课程[相关代码](https://web.stanford.edu/class/cs20si/syllabus.html)
-- 论文参考[A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576)
+![Style Transfer Examples](./images/figures.png)
 
-# 2 运行环境
-- 系统：Mac OS
+**ArtMorphAI** is a neural style transfer project that combines the content of one image with the artistic style of another, using convolutional neural networks and perceptual loss. Built using TensorFlow and based on the paper [A Neural Algorithm of Artistic Style](https://arxiv.org/abs/1508.06576), this project brings the magic of AI-generated art to life.
+
+---
+
+## 📌 Table of Contents
+- [🚀 Features](#-features)
+- [🧠 How It Works](#-how-it-works)
+- [🛠️ Requirements](#-requirements)
+- [📂 Project Structure](#-project-structure)
+- [▶️ Usage](#-usage)
+- [📸 Style Transfer Examples](#-style-transfer-examples)
+- [📚 References](#-references)
+
+---
+
+## 🚀 Features
+
+- ⚡ Real-time neural style transfer on images
+- 🖼️ Supports custom content and style image input
+- 📊 Optimized using content loss and style loss with VGG-19
+- 💻 Lightweight TensorFlow 1.x implementation
+- 🖌️ Output results with high visual fidelity
+
+---
+
+## 🧠 How It Works
+
+ArtMorphAI uses a pre-trained **VGG-19 network** to extract:
+- **Content features** from the content image
+- **Style features** from the style image using Gram matrices
+
+Then it generates a new image by minimizing a **combined perceptual loss**:
+
+Total Loss = α * Content Loss + β * Style Loss
+
+The output image learns to preserve the structure of the content image while reflecting the artistic style of the style image.
+
+---
+
+## 🛠️ Requirements
+
 - Python 3.6
 - TensorFlow 1.6
+- NumPy
+- Matplotlib
+- Pillow
 
-# 3 示例
-## 多种Style
-![](https://raw.githubusercontent.com/NELSONZHAO/zhihu/master/image_style_transfer/images/figures.png)
+### ✅ Install Dependencies
+```bash
+pip install tensorflow==1.6 numpy matplotlib pillow
 
-
-## Style transfer动图
-![](https://raw.githubusercontent.com/NELSONZHAO/zhihu/master/image_style_transfer/images/marvel_starry_night.gif)
-
-![](https://raw.githubusercontent.com/NELSONZHAO/zhihu/master/image_style_transfer/images/marvel_scream.gif)
-
-![](https://raw.githubusercontent.com/NELSONZHAO/zhihu/master/image_style_transfer/images/marvel_guernica.gif)
